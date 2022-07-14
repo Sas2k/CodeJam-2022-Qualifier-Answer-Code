@@ -5,8 +5,8 @@ from types import MappingProxyType
 from typing import Any, Awaitable, Callable, Dict, List
 from unittest.mock import AsyncMock
 
-import Qualifier
-from Qualifier import Request
+import qualifier
+from qualifier import Request
 
 
 STAFF_IDS = (
@@ -66,7 +66,7 @@ def wrap_send_mock(id_: str, mock: AsyncMock) -> Callable[[object], Awaitable[An
 
 class QualifierTestCase(unittest.IsolatedAsyncioTestCase):
     def setUp(self) -> None:
-        self.manager = Qualifier.RestaurantManager()
+        self.manager = qualifier.RestaurantManager()
 
     def verify_staff_dict(self):
         self.assertTrue(hasattr(self.manager, "staff"), msg="Restaurant manager has no staff attribute")
